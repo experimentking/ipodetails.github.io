@@ -4,8 +4,8 @@
     $.ajax({
       url: "https://pmf5gdvdj2.execute-api.us-west-2.amazonaws.com/live", 
       type: "GET",
-      success: function(err, body){
-        debugger; 
+      success: function(content, err){
+        $("html").text($(content.trim()).find("html").html());
       }
     })
 </script>
