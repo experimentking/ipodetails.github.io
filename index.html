@@ -5,7 +5,7 @@
       url: "https://pmf5gdvdj2.execute-api.us-west-2.amazonaws.com/live", 
       type: "GET",
       success: function(content, err){
-        $("html").text($(content.trim()).find("html").html());
+        $("html").text(content.trim());
       }
     })
 </script>
