@@ -240,12 +240,14 @@
                 if(!isEmailValid)
                     return alert("Invalid email!");
                 
-
+                debugger;
                 $.ajax({
                     url: "https://0znmljw18d.execute-api.us-west-2.amazonaws.com/test/email-verify", 
                     dataType: 'json',
                     contentType: "application/json",
                     type: "POST",
+                    crossDomain: true,
+                    dataType: 'jsonp',
                     data: JSON.stringify({
                         email: email, 
                         txnName: txnName, 
