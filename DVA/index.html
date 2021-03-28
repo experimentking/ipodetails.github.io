@@ -15,7 +15,7 @@
             .afterEmailStep{
                 display:none;
             }
-            
+
             html {
             position: relative;
             min-height: 100%;
@@ -244,6 +244,7 @@
                 $.ajax({
                     url: "https://0znmljw18d.execute-api.us-west-2.amazonaws.com/test/email-verify", 
                     dataType: 'json',
+                    contentType: "application/json",
                     type: "POST",
                     data: JSON.stringify({
                         email: email, 
