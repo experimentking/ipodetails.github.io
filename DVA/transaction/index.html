@@ -1,0 +1,240 @@
+
+
+
+
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Trusted DVA</title>
+    <style>
+        html {
+        position: relative;
+        min-height: 100%;
+        }
+        
+        .table td, .table th {
+        font-size: 11px;
+        vertical-align: middle!important;
+        }
+        p {
+        font-size: 11px;
+        }
+
+        @media only screen and (min-width: 600px) {
+
+        .table td, .table th {
+            font-size: 12px;
+        }
+        p {
+            font-size: 12px;
+        }
+        .footer{
+            font-size: 12px!important;
+        }
+        }
+        @media only screen and (min-width: 1000px) {
+
+        .table td, .table th {
+            font-size: 14px;
+        }
+        p {
+            font-size: 14px;
+        }
+        .footer{
+            font-size: 14px!important;
+        }
+        }
+        @media only screen and (min-width: 1300px) {
+
+        .table td, .table th {
+            font-size: 15px;
+        }
+        p {
+            font-size: 15px;
+        }
+        .footer{
+            font-size: 15px!important;
+        }
+        }
+        @media only screen and (min-width: 1600px) {
+
+        .table td, .table th {
+            font-size: 16px;
+        }
+        p {
+            font-size: 16px;
+        }
+        .footer{
+            font-size: 16px!important;
+        }
+        }
+        @media only screen and (min-width: 1850px) {
+
+        .table td, .table th {
+            font-size: 17px;
+        }
+        p {
+            font-size: 17px;
+        }
+        .footer{
+            font-size: 17px!important;
+        }
+        }
+        
+        body {
+        overflow:hidden;
+        }
+        .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 45px;
+        line-height: 15px;
+        background-color: #f5f5f5;
+        font-size: 12px;
+        }
+        
+        body > .container {
+        padding: 55px 5px 0;
+        }
+        
+        .footer > .container {
+        padding-right: 5px;
+        padding-left: 5px;
+        }
+        .navbar-brand{
+        font-size: 1rem!important;
+        }
+        
+    </style>
+    <script>
+
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+    
+        var txnId = getParameterByName("id");
+    
+    </script>
+</head>
+<body>
+
+<header>
+    <!-- Fixed navbar -->
+    <div class="container navbar navbar-expand-md fixed-top">
+        <div>
+            <span style="font-family: fangsong;font-size: 25px;font-weight: bold;color:indianred;"></span>
+            <span style="font-size: 25px;font-family: cursive;color:#33707d;padding-left:1px;font-weight:bold;">Trusted DVA</span>
+        </div>
+    </div>
+</header>
+
+<main role="main" class="container" style="display: flex; flex-direction:column;">
+
+    <div class="form-group row">
+        <label for="inputTxnName" class="col-sm-2 col-form-label font-weight-bold">Transaction Name</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputTxnName" placeholder="Short name for this transaction">
+        </div>
+    </div>
+
+    <fieldset class="form-group">
+        <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0 font-weight-bold">Are you</legend>
+            <div class="col-sm-10">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
+                <label class="form-check-label" for="gridRadios1">
+                Buyer or
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                <label class="form-check-label" for="gridRadios2">
+                Seller
+                </label>
+            </div>
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="form-group row">
+        <label for="inputName" class="col-sm-2 col-form-label font-weight-bold">Your Name</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputName" placeholder="Your name">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputEmail" class="col-sm-2 col-form-label font-weight-bold">Your Email</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputEmail" placeholder="Valid Email (OTP will be shared for verification)">
+        </div>
+    </div>
+
+    
+    <div class="form-group row">
+        <div class="col-sm-12 alert alert-success" role="alert" style="display:none;">
+            OTP has been sent to your email address for verification. Please enter OTP and Proceed with transaction. 
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="inputOTP" class="col-sm-2 col-form-label font-weight-bold">OTP</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" id="inputOTP" placeholder="Enter OTP received over email">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-2">
+            
+        </div>
+        <div class="col-sm-10">
+            <button id="verifyEmail" type="submit" class="btn btn-primary">Verify</button>
+            <button type="submit" id="verifyOTP" disabled class="btn btn-primary">Proceed</button>
+        </div>
+    </div>
+
+    <i class="fa fa-spinner fa-spin" style="position: absolute; top: 47%; left: 47%; font-size: 35px; display:none;"></i>
+
+</main>
+
+<footer class="footer mt-auto py-3">
+    <div class="container">
+        Feedback: <a class="my-2 my-sm-0" href="mailto:ideas2experiment@gmail.com?subject=Hey there!">ideas2experiment@gmail.com</a>
+    </div>
+</footer>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+
+<script>
+
+$("#verifyEmail").click(function(){
+
+    var email = $("#inputEmail").val(),
+        txnName = $("#txnName").val(),
+        type = $("#gridRadios1").attr("checked") ? "Buyer" : "Seller",
+        name = $("#imputName").val();
+
+    
+//    $.ajax()
+
+});
+
+</script>
