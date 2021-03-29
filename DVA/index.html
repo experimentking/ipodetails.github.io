@@ -204,7 +204,7 @@
                 </div>
             </div>
         
-            <i class="fa fa-spinner fa-spin afterEmailStep" style="position: absolute; top: 47%; left: 47%; font-size: 35px;"></i>
+            <i class="fa fa-spinner fa-spin loadingIcon" style="position: absolute; top: 47%; left: 47%; font-size: 35px;"></i>
         
         </main>
         
@@ -239,18 +239,15 @@
             
                 if(!isEmailValid)
                     return alert("Invalid email!");
+
+                $(".loadingIcon").show();
+                $("#verifyEmail").attr("disabled","disabled")
                 
                 debugger;
                 $.ajax({
                     url: "https://0znmljw18d.execute-api.us-west-2.amazonaws.com/test/email-verify", 
                     contentType: "application/json",
                     type: "POST",
-                   // crossDomain: true,
-                    // headers: {  
-                    //     'Content-Type': 'application/json',
-                    //     'Access-Control-Allow-Origin': "https://ideas2experiment.github.io"
-                    // },
-                   // dataType: 'json',
                     data: JSON.stringify({
                         email: email, 
                         txnName: txnName, 
@@ -259,6 +256,35 @@
                     }),
                     success: function(data){
                         debugger; 
+                        $(".afterEmailStep").show();
+                        $(".loadingIcon").hide();
+                        $("#verifyOTP").attr("disabled",false);
+
+                        $("#verifyOTP").click(function(){
+
+                            $(".loadingIcon").show();
+                            $("#verifyOTP").attr("disabled",true);  //todo
+
+                            var otp = $("#inputOTP").val();
+
+                            if(!otp)
+                                return alert("Please enter OTP");
+
+                            $.ajax({
+                                url: "https://0znmljw18d.execute-api.us-west-2.amazonaws.com/test/otp-verify", 
+                                contentType: "application/json",
+                                type: "POST",
+                                data: JSON.stringify({
+                                    txnId: "", 
+                                    type: $('input[name=gridRadios]:checked').val(),
+                                    otp: otp
+                                }),
+                                success: function(data){
+                                    $(".loadingIcon").hide();
+                                }
+                            });
+
+                        });
                     },
                     error: function(err){
                         debugger;

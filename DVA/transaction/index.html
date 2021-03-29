@@ -142,69 +142,14 @@
 <main role="main" class="container" style="display: flex; flex-direction:column;">
 
     <div class="form-group row">
-        <label for="inputTxnName" class="col-sm-2 col-form-label font-weight-bold">Transaction Name</label>
-        <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputTxnName" placeholder="Short name for this transaction">
-        </div>
-    </div>
-
-    <fieldset class="form-group">
-        <div class="row">
-            <legend class="col-form-label col-sm-2 pt-0 font-weight-bold">Are you</legend>
-            <div class="col-sm-10">
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                <label class="form-check-label" for="gridRadios1">
-                Buyer or
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                <label class="form-check-label" for="gridRadios2">
-                Seller
-                </label>
-            </div>
-            </div>
-        </div>
-    </fieldset>
-
-    <div class="form-group row">
-        <label for="inputName" class="col-sm-2 col-form-label font-weight-bold">Your Name</label>
-        <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputName" placeholder="Your name">
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <label for="inputEmail" class="col-sm-2 col-form-label font-weight-bold">Your Email</label>
-        <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputEmail" placeholder="Valid Email (OTP will be shared for verification)">
-        </div>
+        <label for="inputTxnName" class="col-sm-1 col-form-label font-weight-bold">Buyer:</label>
+        <label for="inputTxnName" class="col-sm-2 col-form-label">himanshu jain</label>
+        <label for="inputTxnName" class="col-sm-6 col-form-label font-weight-bold"></label>
+        <label for="inputTxnName" class="col-sm-1 col-form-label font-weight-bold">Seller:</label>
+        <label for="inputTxnName" class="col-sm-2 col-form-label">ashu jain</label>
     </div>
 
     
-    <div class="form-group row">
-        <div class="col-sm-12 alert alert-success" role="alert" style="display:none;">
-            OTP has been sent to your email address for verification. Please enter OTP and Proceed with transaction. 
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <label for="inputOTP" class="col-sm-2 col-form-label font-weight-bold">OTP</label>
-        <div class="col-sm-10">
-            <input type="email" class="form-control" id="inputOTP" placeholder="Enter OTP received over email">
-        </div>
-    </div>
-
-    <div class="form-group row">
-        <div class="col-sm-2">
-            
-        </div>
-        <div class="col-sm-10">
-            <button id="verifyEmail" type="submit" class="btn btn-primary">Verify</button>
-            <button type="submit" id="verifyOTP" disabled class="btn btn-primary">Proceed</button>
-        </div>
-    </div>
 
     <i class="fa fa-spinner fa-spin" style="position: absolute; top: 47%; left: 47%; font-size: 35px; display:none;"></i>
 
