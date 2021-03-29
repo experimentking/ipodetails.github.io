@@ -190,7 +190,7 @@
             <div class="form-group row afterEmailStep">
                 <label for="inputOTP" class="col-sm-2 col-form-label font-weight-bold">OTP</label>
                 <div class="col-sm-10">
-                    <input type="textbox" class="form-control" id="inputOTP" placeholder="Enter OTP received over email">
+                    <input type="number" class="form-control" id="inputOTP" placeholder="Enter OTP received over email">
                 </div>
             </div>
         
@@ -204,7 +204,7 @@
                 </div>
             </div>
         
-            <i class="fa fa-spinner fa-spin loadingIcon" style="position: absolute; top: 47%; left: 47%; font-size: 35px;"></i>
+            <i class="fa fa-spinner fa-spin loadingIcon" style="position: absolute; top: 47%; left: 47%; font-size: 35px;display:none;"></i>
         
         </main>
         
@@ -256,35 +256,52 @@
                     }),
                     success: function(data){
                         debugger; 
-                        $(".afterEmailStep").show();
-                        $(".loadingIcon").hide();
-                        $("#verifyOTP").attr("disabled",false);
 
-                        $("#verifyOTP").click(function(){
+                        var resp = JSON.parse(data);
+                        if(resp.status){
 
-                            $(".loadingIcon").show();
-                            $("#verifyOTP").attr("disabled",true);  //todo
+                            var txnId = resp.data.txnId;
 
-                            var otp = $("#inputOTP").val();
+                            $(".afterEmailStep").show();
+                            $(".loadingIcon").hide();
+                            $("#verifyOTP").attr("disabled",false);
 
-                            if(!otp)
-                                return alert("Please enter OTP");
+                            $("#verifyOTP").click(function(){
 
-                            $.ajax({
-                                url: "https://0znmljw18d.execute-api.us-west-2.amazonaws.com/test/otp-verify", 
-                                contentType: "application/json",
-                                type: "POST",
-                                data: JSON.stringify({
-                                    txnId: "", 
-                                    type: $('input[name=gridRadios]:checked').val(),
-                                    otp: otp
-                                }),
-                                success: function(data){
-                                    $(".loadingIcon").hide();
-                                }
+                                $(".loadingIcon").show();
+                                $("#verifyOTP").attr("disabled",true);  //todo
+
+                                var otp = $("#inputOTP").val();
+
+                                if(!otp)
+                                    return alert("Please enter OTP");
+
+                                $.ajax({
+                                    url: "https://0znmljw18d.execute-api.us-west-2.amazonaws.com/test/otp-verify", 
+                                    contentType: "application/json",
+                                    type: "POST",
+                                    data: JSON.stringify({
+                                        txnId: txnId, 
+                                        type: $('input[name=gridRadios]:checked').val(),
+                                        otp: otp
+                                    }),
+                                    success: function(data){
+
+                                        $(".loadingIcon").hide();
+
+                                        var resp = JSON.parse(data);
+
+                                        if(resp.status){
+                                        }
+                                        else 
+                                            alert(resp.message);
+
+                                        
+                                    }
+                                });
+
                             });
-
-                        });
+                        }
                     },
                     error: function(err){
                         debugger;
