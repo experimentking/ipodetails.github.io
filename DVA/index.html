@@ -245,12 +245,12 @@
                     url: "https://0znmljw18d.execute-api.us-west-2.amazonaws.com/test/email-verify", 
                     contentType: "application/json",
                     type: "POST",
-                    crossDomain: true,
+                   // crossDomain: true,
                     // headers: {  
                     //     'Content-Type': 'application/json',
                     //     'Access-Control-Allow-Origin': "https://ideas2experiment.github.io"
                     // },
-                    dataType: 'json',
+                   // dataType: 'json',
                     data: JSON.stringify({
                         email: email, 
                         txnName: txnName, 
@@ -259,6 +259,9 @@
                     }),
                     success: function(data){
                         debugger; 
+                    },
+                    error: function(err){
+                        debugger;
                     }
                 });
             
