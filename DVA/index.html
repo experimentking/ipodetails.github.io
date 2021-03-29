@@ -293,14 +293,16 @@
                                         var resp = JSON.parse(data);
 
                                         if(resp.status){
+                                            debugger;
 
                                             location.assign("/DVA/transaction?id=" + txnId);
                                             //
                                             //https://0znmljw18d.execute-api.us-west-2.amazonaws.com/test
                                         }
-                                        else 
+                                        else {
                                             alert(resp.message);
-
+                                            $("#verifyOTP").attr("disabled",false); 
+                                        }
                                         
                                     }
                                 });
